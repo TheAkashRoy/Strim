@@ -1,13 +1,12 @@
 import cors from 'cors';
 import express from 'express';
 
-app = express();
+const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.get('/', (req, res) => {
-    res.send("Hello World");
-});
+import userRouter from './routes/user.routes.js';
+app.use('/api/users', userRouter);
 
-export {app};
+export  {app} ;
